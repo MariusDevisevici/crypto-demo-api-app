@@ -1,0 +1,19 @@
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+.section__second {
+  margin-top: 15rem;
+}
+.section__second h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+.section__second a {
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #00ce79;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+}

@@ -1,0 +1,123 @@
+.header {
+  width: 70%;
+  margin: auto;
+  height: 4rem;
+  position: relative;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 1rem;
+  font-size: 0.85rem;
+}
+
+.nav__list {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  align-items: center;
+}
+.nav .nav__list li {
+  cursor: pointer;
+}
+.nav .nav__list li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav__item_new {
+  position: relative;
+}
+
+.nav__item_new ::after {
+  content: "New";
+  background-color: #00ce79;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  /* position: relative; */
+  border-radius: 1rem;
+  color: white;
+  border-radius: 0.25rem;
+  margin-left: 0.5rem;
+  font-size: 0.75rem;
+}
+.nav__item_new::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 1.8rem;
+  top: 0.285rem;
+  border-left: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 6px solid;
+  color: #00ce79;
+}
+
+.nav__item_logo {
+  width: fit-content;
+  color: #00ce79;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.nav__item_register {
+  position: relative;
+  color: white;
+  font-weight: bold;
+}
+
+.nav__item_register::after {
+  content: "";
+  position: absolute;
+  width: 4rem;
+  height: 2rem;
+  background-color: #00ce79;
+  left: -0.4rem;
+  top: -0.35rem;
+  border-radius: 0.25rem;
+  z-index: -1;
+}
+
+.nav__item_moon img {
+  width: 1rem;
+  transform: rotate(-30deg);
+}
+
+.nav__item_currency {
+  position: relative;
+}
+
+.nav__item_currency::after,
+.nav__item_currency::before {
+  content: "";
+  position: absolute;
+  width: 0.05rem;
+  background-color: white;
+  height: 1rem;
+}
+.nav__item_currency::after {
+  left: 2rem;
+}
+.nav__item_currency::before {
+  left: -0.5rem;
+}
+
+.gift {
+  width: 100%;
+  background-color: #333333;
+  padding-block: 0.5rem;
+  font-size: 0.85rem;
+  color: #00ce79;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.gift svg {
+  width: 1rem;
+  margin-right: 0.25rem;
+}

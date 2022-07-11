@@ -1,0 +1,57 @@
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  background: hsl(0, 0%, 20%);
+  padding: 0.5rem 0;
+  color: rgb(0, 0, 0);
+  /* border-block: 3px solid black; */
+  cursor: pointer;
+  margin-top: 8rem;
+}
+.marquee__item {
+  display: inline-flex;
+  will-change: transform;
+  animation: marquee 180s linear infinite;
+  align-items: center;
+}
+
+.marquee__item img {
+  max-width: 20px;
+  margin-inline: 5px;
+}
+
+.marquee:hover .marquee__item {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.name {
+  color: white;
+}
+
+.symbol {
+  margin-inline: 5px;
+  color: #00ce79;
+}
+
+.price {
+  font-weight: bold;
+  margin-right: 5px;
+  color: white;
+}
+
+.percent {
+  font-size: 0.7rem;
+  align-self: flex-end;
+  font-weight: bold;
+  margin-right: 2rem;
+  color: #00ce79;
+}
