@@ -116,8 +116,33 @@
   justify-content: center;
   cursor: pointer;
 }
+.hamburger {
+  /* display: flex; */
+  flex-direction: column;
+  gap: 5px;
+  display: none;
+}
+
+.hamburger__line {
+  width: 2rem;
+  height: 5px;
+  background-color: #00ce79;
+}
 
 .gift svg {
   width: 1rem;
   margin-right: 0.25rem;
+}
+
+@media (max-width: 1366px) {
+  .nav__list:nth-of-type(2) {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+  }
 }

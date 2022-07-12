@@ -24,7 +24,7 @@ function Header() {
             </li>
             <li>
               <Link href="/">
-                <a>Trade</a>
+                <a>Wallet</a>
               </Link>
             </li>
 
@@ -34,6 +34,11 @@ function Header() {
               </Link>
             </li>
           </ul>
+          <div className={styles.hamburger}>
+            <span className={styles.hamburger__line}></span>
+            <span className={styles.hamburger__line}></span>
+            <span className={styles.hamburger__line}></span>
+          </div>
           <ul className={styles.nav__list}>
             <li>
               <Link href="/">

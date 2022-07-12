@@ -3,11 +3,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 
 .banner h1 {
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: bold;
 }
 
@@ -24,4 +24,14 @@
   background-color: #00ce79;
   color: white;
   cursor: pointer;
+}
+
+@media (max-width: 1366px) {
+  .banner h1 {
+    font-size: 3rem;
+  }
+
+  .banner__btn {
+    padding: 1rem 3rem;
+  }
 }
