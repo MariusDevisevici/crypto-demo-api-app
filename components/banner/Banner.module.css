@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   /* flex-wrap: wrap; */
 }
 
@@ -27,11 +28,31 @@
 }
 
 @media (max-width: 1366px) {
+  .banner {
+    justify-content: center;
+    align-items: flex-start;
+  }
   .banner h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .banner__btn {
     padding: 1rem 3rem;
+  }
+
+  .banner img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1160px) {
+  .banner {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5rem;
+  }
+
+  .banner h1 {
+    font-size: 3rem;
   }
 }

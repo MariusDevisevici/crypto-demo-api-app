@@ -45,3 +45,25 @@
 .featured__list_items:hover {
   background-color: rgba(121, 121, 121, 0.03);
 }
+
+@media (max-width: 996px) {
+  .featured__list_top {
+    grid-template-columns: 2fr 1fr 1fr;
+    /* place-items: center; */
+  }
+  .featured__list_items {
+    grid-template-columns: 2fr 1fr 1fr;
+
+    font-size: 1rem;
+  }
+  .market {
+    display: none;
+  }
+
+  .featured__list .featured__list_items .market {
+    display: none;
+  }
+  .featured__list .featured__list_items img {
+    width: 1.5rem;
+  }
+}

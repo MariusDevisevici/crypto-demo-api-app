@@ -1,8 +1,19 @@
 import Link from "next/link";
-import {} from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./Header.module.css";
 
 function Header() {
+  const [toggle, setToggle] = useState(false);
+  const mobileNav = useRef<any>();
+  const hamburgerRef = useRef<any>();
+
+  useEffect(() => {
+    if (toggle) {
+      mobileNav.current.classList.remove(styles.d_none);
+    } else {
+      mobileNav.current.classList.add(styles.d_none);
+    }
+  }, [toggle]);
   return (
     <>
       <header className={styles.header}>
@@ -34,12 +45,43 @@ function Header() {
               </Link>
             </li>
           </ul>
-          <div className={styles.hamburger}>
+          <div
+            className={styles.hamburger}
+            ref={hamburgerRef}
+            onClick={() => {
+              setToggle(!toggle);
+            }}
+          >
             <span className={styles.hamburger__line}></span>
             <span className={styles.hamburger__line}></span>
             <span className={styles.hamburger__line}></span>
           </div>
           <ul className={styles.nav__list}>
+            <li>
+              <Link href="/">
+                <a>Log In</a>
+              </Link>
+            </li>
+            <li className={styles.nav__item_register}>
+              <Link href="/">
+                <a>Register</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/">
+                <a>Download</a>
+              </Link>
+            </li>
+            <li>English</li>
+            <li className={styles.nav__item_currency}>USD</li>
+            <li className={styles.nav__item_moon}>
+              <img src="/assets/images/moon-svgrepo-com.svg" alt="moon" />
+            </li>
+          </ul>
+          <ul
+            className={`${styles.nav__list_mob} ${styles.d_none}`}
+            ref={mobileNav}
+          >
             <li>
               <Link href="/">
                 <a>Log In</a>

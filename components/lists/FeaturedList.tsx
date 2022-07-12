@@ -11,7 +11,7 @@ function FeaturedList({ data }: { data: any }) {
         <h2>Name</h2>
         <h2>Last Price</h2>
         <h2>24h Change</h2>
-        <h2>Market Cap</h2>
+        <h2 className={styles.market}>Market Cap</h2>
       </div>
       {data.slice(0, 5).map((el: any, i: number) => {
         return (
@@ -36,7 +36,7 @@ function FeaturedList({ data }: { data: any }) {
             >
               {Number(el.price_change_percentage_24h).toFixed(3)}%
             </div>
-            <div>{el.market_cap}</div>
+            <div className={styles.market}>{el.market_cap}</div>
           </div>
         );
       })}

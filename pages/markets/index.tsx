@@ -1,16 +1,26 @@
 import React from "react";
-import { getDataID } from "../../utils/fetchapi";
+import { getData } from "../../utils/fetchapi";
 
-function Coins({ param }: { param: any }) {
-  // console.log(param);
+function Coins({ data }: { data: any }) {
+  console.log(data);
 
-  return <div>{param}</div>;
+  return (
+    <div>
+      {data.map((el: any, i: number) => {
+        return <h1>{el.name}</h1>;
+      })}
+    </div>
+  );
 }
 
 export default Coins;
 
 export async function getServerSideProps(context: any) {
+  const data = await getData();
+
   return {
-    props: {},
+    props: {
+      data,
+    },
   };
 }
