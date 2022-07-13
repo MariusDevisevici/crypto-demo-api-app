@@ -25,7 +25,12 @@ function Home({ data }: { data: JSON }) {
         <section title="Hero Section" className={styles.container}>
           <Banner></Banner>
         </section>
-        <section className={`${styles.container} ${styles.section__second}`}>
+        <section
+          className={`${styles.container} ${styles.section__second}`}
+          style={{
+            marginBottom: " 1rem",
+          }}
+        >
           <h1>Featured cryptocurrencies</h1>
           <BarLoader color="#00ce79"></BarLoader>
         </section>

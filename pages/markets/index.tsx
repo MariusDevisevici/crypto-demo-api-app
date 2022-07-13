@@ -1,14 +1,41 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import { BarLoader } from "react-spinners";
+import MarketList from "../../components/lists/MarketList";
 import { getData } from "../../utils/fetchapi";
 
 function Coins({ data }: { data: any }) {
-  console.log(data);
+  const [clientData, setClientData] = useState();
+  useEffect(() => {
+    const interval = setInterval(async () => {
+      const data = await getData();
 
+      setClientData(data);
+      console.log(clientData);
+    }, 10000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  if (!clientData && !data) {
+    return (
+      <div>
+        <BarLoader></BarLoader>
+      </div>
+    );
+  }
+
+  if (!clientData) {
+    return (
+      <div>
+        <MarketList data={data}></MarketList>
+      </div>
+    );
+  }
   return (
     <div>
-      {data.map((el: any, i: number) => {
-        return <h1>{el.name}</h1>;
-      })}
+      <MarketList data={clientData}></MarketList>
     </div>
   );
 }
@@ -24,3 +51,4 @@ export async function getServerSideProps(context: any) {
     },
   };
 }
+////19765.86

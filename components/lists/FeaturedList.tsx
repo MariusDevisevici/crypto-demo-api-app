@@ -1,6 +1,7 @@
 import {} from "react";
 import styles from "./Lists.module.css";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 function FeaturedList({ data }: { data: any }) {
   const router = useRouter();
@@ -23,7 +24,8 @@ function FeaturedList({ data }: { data: any }) {
             className={styles.featured__list_items}
           >
             <div>
-              <img src={el.image} alt="coinLogo" /> {el.name}
+              <Image width={30} height={30} src={el.image} alt="coinLogo" />{" "}
+              {el.name}
               <span>[{el.symbol}]</span>
             </div>
             <div>{Number(el.current_price).toFixed(3)}$</div>
