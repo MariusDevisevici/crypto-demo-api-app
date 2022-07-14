@@ -30,7 +30,6 @@
 @media (max-width: 1366px) {
   .banner {
     justify-content: center;
-    align-items: flex-start;
   }
   .banner h1 {
     font-size: 2.5rem;
