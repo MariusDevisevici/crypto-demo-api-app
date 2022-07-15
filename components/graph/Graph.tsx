@@ -25,21 +25,20 @@ ChartJS.register(
 function Graph({ days }: { days: number }) {
   const [prices, setPrices] = useState();
   const router = useRouter();
-  useEffect(() => {
-    const interval = setInterval(async () => {
-      const response =
-        await fetch(`https://api.coingecko.com/api/v3/coins/${router.query.id}/market_chart?vs_currency=usd&days=${days}&interval=daily
-        `);
-      const data = await response.json();
+  const gettingData = async () => {
+    const response =
+      await fetch(`https://api.coingecko.com/api/v3/coins/${router.query.id}/market_chart?vs_currency=usd&days=${days}&interval=daily
+      `);
+    const data = await response.json();
+    console.log(data);
 
-      const pricesList = data.prices.map((el: any, i: number) => {
-        return el[1];
-      });
-      setPrices(pricesList);
-    }, 10000);
-    return () => {
-      clearInterval(interval);
-    };
+    const pricesList = data.prices.map((el: any, i: number) => {
+      return el[1];
+    });
+    setPrices(pricesList);
+  };
+  useEffect(() => {
+    gettingData();
   }, []);
 
   const data: any = {

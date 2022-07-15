@@ -8,7 +8,7 @@ export async function getData() {
   return data;
 }
 
-export async function getDataID(id: string) {
+export async function getDataID(id: any) {
   const response = await fetch(`https://api.coingecko.com/api/v3/coins/${id}`);
   const data = await response.json();
   return data;
