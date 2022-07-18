@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import styles from "./Graph.module.css";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -88,7 +89,7 @@ function Graph({ days }: { days: number }) {
   }
 
   return (
-    <div>
+    <div className={styles.graph}>
       <Line data={data}></Line>
     </div>
   );
