@@ -10,7 +10,6 @@ function Coins({ data }: { data: any }) {
       const data = await getData();
 
       setClientData(data);
-      console.log(clientData);
     }, 10000);
 
     return () => {
@@ -51,4 +50,3 @@ export async function getServerSideProps(context: any) {
     },
   };
 }
-////19765.86

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import styles from "./Lists.module.css";
 import ListSort from "./ListSort";
@@ -43,16 +44,18 @@ function MarketList({ data }: { data: any }) {
         .map((el: any, i: number) => {
           return (
             <div className={styles.market__list} key={i}>
-              <div className={styles.market__item}>
-                <Image
-                  height="30px"
-                  src={el.image}
-                  width="30px"
-                  alt="coin logo"
-                />
-                <span>{el.symbol}</span>
-                <span>{el.name}</span>
-              </div>
+              <Link href={`/markets/${el.id}`}>
+                <div className={styles.market__item}>
+                  <Image
+                    height="30px"
+                    src={el.image}
+                    width="30px"
+                    alt="coin logo"
+                  />
+                  <span>{el.symbol}</span>
+                  <span>{el.name}</span>
+                </div>
+              </Link>
               <div className={styles.market__item}>
                 <span>{el.current_price}$</span>
               </div>

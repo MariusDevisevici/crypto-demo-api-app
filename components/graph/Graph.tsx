@@ -31,7 +31,7 @@ function Graph({ days }: { days: number }) {
       await fetch(`https://api.coingecko.com/api/v3/coins/${router.query.id}/market_chart?vs_currency=usd&days=${days}&interval=daily
       `);
     const data = await response.json();
-    console.log(data);
+    
 
     const pricesList = data.prices.map((el: any, i: number) => {
       return el[1];

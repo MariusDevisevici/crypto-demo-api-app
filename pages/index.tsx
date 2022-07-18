@@ -13,7 +13,7 @@ function Home({ data }: { data: JSON }) {
   useEffect(() => {
     const interval = setInterval(async () => {
       const data = await getData();
-      console.log(data);
+
       return setClientData(data);
     }, 10000);
     return () => clearInterval(interval);

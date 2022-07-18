@@ -1,10 +1,10 @@
 .details {
   display: flex;
   flex-direction: column;
-
   width: fit-content;
   padding: 2rem 10rem;
   margin-top: 5rem;
+  margin: auto;
 }
 
 .details h1 {
@@ -21,13 +21,15 @@
   flex-direction: column;
   width: fit-content;
   margin: auto;
-  padding: 1.5rem;
+  padding: 2rem 5rem;
   background-color: rgba(0, 0, 0, 0.37);
   border-radius: 0.5rem;
+  align-items: center;
 }
 .details__row {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
 }
 
 .details__row span {
@@ -42,14 +44,13 @@
 }
 .details h2 {
   font-size: 2rem;
-  /* font-weight: bold; */
-  align-self: flex-start;
+  align-self: center;
   color: #00ce79;
   margin-top: 1.5rem;
 }
 
 .details__list {
-  align-self: flex-start;
+  align-self: center;
   margin-top: 1.5rem;
   list-style: none;
 }

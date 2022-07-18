@@ -12,7 +12,6 @@ function CoinDetails({ data }: { data: object }) {
     const interval = setInterval(async () => {
       const response = await getDataID(router.query.id);
       setDetails(response);
-      console.log(response);
     }, 10000);
 
     return () => {
@@ -22,8 +21,14 @@ function CoinDetails({ data }: { data: object }) {
 
   if (!details) {
     return (
-      <div>
-        <BarLoader color="gold"> </BarLoader>
+      <div
+        style={{
+          display: "grid",
+          placeItems: "center",
+          paddingTop: "5rem",
+        }}
+      >
+        <BarLoader color="#00ce79"> </BarLoader>
       </div>
     );
   }
@@ -34,31 +39,35 @@ function CoinDetails({ data }: { data: object }) {
         <div className={styles.details__top}>
           <div className={styles.details__row}>
             <Image src={details.image.small} width={50} height={50}></Image>
-            <span>{details.symbol}</span>
+            <span>{details.symbol || "/not found/"}</span>
           </div>
 
-          <h1>{details.name}</h1>
-          <span>{details.market_data.current_price.usd}$</span>
+          <h1>{details.name || "/not found/"}</h1>
+          <span>{details.market_data.current_price.usd || "/not found/"}$</span>
         </div>
         <ul className={styles.details__list}>
           <li>
-            Market Cap: <span>{details.market_data.market_cap.usd}$</span>
+            Market Cap:
+            <span>{details.market_data.market_cap.usd || "/not found/"}$</span>
           </li>
           <li>
-            Market Cap Rank: <span>{details.market_cap_rank}</span>
+            Market Cap Rank:
+            <span>{details.market_cap_rank || "/not found/"}</span>
           </li>
           <li>
-            All time high: <span>{details.market_data.ath.usd}$</span>
+            All time high:
+            <span>{details.market_data.ath.usd || "/not found/"}$</span>
           </li>
           <li>
-            Genesis Date: <span>{details.genesis_date}</span>
+            Genesis Date: <span>{details.genesis_date || "/not found/"}</span>
           </li>
           <li>
-            Hashing Algorithm: <span>{details.hashing_algorithm}</span>
+            Hashing Algorithm:
+            <span>{details.hashing_algorithm || "/not found/"}</span>
           </li>
         </ul>
         <h2>Description: </h2>
-        <p>{details.description.en}</p>
+        <p>{details.description.en || " /not found/"}</p>
       </div>
 
       <Graph days={7}></Graph>
@@ -71,7 +80,7 @@ export default CoinDetails;
 export async function getServerSideProps(context: any) {
   const params = context.params.id;
   const data = await getDataID(params);
-  console.log(data);
+
   if (!data) {
     return {
       notFound: true,
